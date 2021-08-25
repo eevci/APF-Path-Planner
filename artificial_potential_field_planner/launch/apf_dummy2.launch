@@ -1,0 +1,7 @@
+<launch>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find artificial_potential_field_planner)/maps/dummy-2.yaml"/>
+    <node pkg="tf" type="static_transform_publisher" name="map" args="331.000000 908.250000 0.0 0 0 0 /map test 100" />
+    <include file="$(find artificial_potential_field_planner)/launch/apf.launch" />
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find artificial_potential_field_planner)/rviz/test_env.rviz" />
+    <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure"/>
+</launch>

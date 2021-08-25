@@ -1,0 +1,3 @@
+<launch>
+  <node name="apf_planner" pkg="artificial_potential_field_planner" type="artificial_potential_field_planner_node" output="screen"/>
+</launch>
