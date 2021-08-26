@@ -19,9 +19,11 @@ include_directories(
     include
     ${catkin_INCLUDE_DIRS}
 )
-set(SRC_FILES
-        src/common/types/vector_2D.cpp
+
+add_library(${PROJECT_NAME} INTERFACE )
+
+install(
+    DIRECTORY include/
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+    FILES_MATCHING PATTERN "*.h"
 )
-add_library(${PROJECT_NAME} SHARED ${SRC_FILES} )
-add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
